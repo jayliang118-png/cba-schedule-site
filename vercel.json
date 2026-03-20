@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/schedule",
+      "destination": "/api/schedule"
+    },
+    {
       "source": "/(.*)",
       "destination": "/cba_schedule.html"
     }

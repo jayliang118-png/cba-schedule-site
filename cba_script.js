@@ -41,18 +41,59 @@ let cbaSchedule = [];
 // 新浪体育数据源URL
 const SINA_CBA_API = 'https://cba.sports.sina.com.cn/cba/schedule/all/';
 
+// 是否使用实时API (部署到Vercel后自动启用)
+const USE_LIVE_API = window.location.hostname !== '' &&
+                     window.location.hostname !== 'localhost' &&
+                     window.location.hostname !== '127.0.0.1';
+
 /**
  * 从新浪体育获取实时赛程数据
  */
 async function fetchRealSchedule() {
-    try {
-        // 由于跨域限制，使用CORS代理或直接嵌入数据
-        // 这里返回本地嵌入的真实数据
-        return getEmbeddedScheduleData();
-    } catch (error) {
-        console.error('获取赛程数据失败:', error);
-        return getEmbeddedScheduleData();
+    // 如果部署在Vercel上，尝试使用API获取实时数据
+    if (USE_LIVE_API) {
+        try {
+            const response = await fetch('/api/schedule');
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success && result.data) {
+                    console.log('从API获取到实时数据:', result.data.length, '场比赛');
+                    return processScheduleData(result.data);
+                }
+            }
+        } catch (error) {
+            console.warn('API获取失败，使用本地数据:', error);
+        }
     }
+
+    // 使用本地嵌入的数据
+    return getEmbeddedScheduleData();
+}
+
+/**
+ * 处理API返回的赛程数据
+ */
+function processScheduleData(rawData) {
+    return rawData.map((game, index) => {
+        const [date, time] = game.datetime.split(' ');
+        const scoreParts = game.score.split(':');
+        const hasScore = game.score !== 'VS';
+
+        return {
+            id: index + 1,
+            round: game.round,
+            date: date,
+            time: time,
+            homeTeam: game.home,
+            awayTeam: game.away,
+            venue: TEAM_VENUES[game.home] || '待定场馆',
+            status: game.status,
+            homeScore: hasScore ? parseInt(scoreParts[0]) : null,
+            awayScore: hasScore ? parseInt(scoreParts[1]) : null,
+            quarter: game.status === '进行中' ? '进行中' : null,
+            weekDay: getWeekDay(new Date(date))
+        };
+    }).sort((a, b) => new Date(a.date + ' ' + a.time) - new Date(b.date + ' ' + b.time));
 }
 
 /**
