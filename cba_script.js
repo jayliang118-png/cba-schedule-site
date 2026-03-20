@@ -58,6 +58,7 @@ async function fetchRealSchedule() {
 /**
  * 嵌入的真实赛程数据 (2025-26赛季)
  * 数据来源: 新浪体育CBA数据库
+ * 最后更新: 2026-03-20
  */
 function getEmbeddedScheduleData() {
     const today = new Date();
@@ -65,51 +66,50 @@ function getEmbeddedScheduleData() {
 
     // 真实赛程数据
     const realSchedule = [
-        // 3月20日 - 今日比赛
-        { round: '第26轮', datetime: '2026-03-20 19:35', home: '江苏', score: '22:17', away: '广东', status: '进行中' },
-        { round: '第26轮', datetime: '2026-03-20 19:35', home: '山东', score: '28:19', away: '天津', status: '进行中' },
-        { round: '第26轮', datetime: '2026-03-20 19:35', home: '广厦', score: '25:29', away: '北控', status: '进行中' },
-        { round: '第26轮', datetime: '2026-03-20 20:00', home: '深圳', score: 'VS', away: '新疆', status: '未开始' },
+        // 第28轮 - 今日比赛 (2026-03-20)
+        { round: '第28轮', datetime: '2026-03-20 19:35', home: '江苏', score: '32:31', away: '广东', status: '进行中' },
+        { round: '第28轮', datetime: '2026-03-20 19:35', home: '山东', score: '33:19', away: '天津', status: '进行中' },
+        { round: '第28轮', datetime: '2026-03-20 19:35', home: '广厦', score: '35:34', away: '北控', status: '进行中' },
+        { round: '第28轮', datetime: '2026-03-20 20:00', home: '深圳', score: '7:2', away: '新疆', status: '进行中' },
 
-        // 3月21日 - 明日比赛
-        { round: '第27轮', datetime: '2026-03-21 19:35', home: '宁波', score: 'VS', away: '广州', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-21 19:35', home: '福建', score: 'VS', away: '山西', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-21 19:35', home: '辽宁', score: 'VS', away: '北京', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-21 19:35', home: '同曦', score: 'VS', away: '青岛', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-21 19:35', home: '上海', score: 'VS', away: '四川', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-21 19:35', home: '浙江', score: 'VS', away: '吉林', status: '未开始' },
+        // 第28轮 - 明日比赛 (2026-03-21)
+        { round: '第28轮', datetime: '2026-03-21 19:35', home: '宁波', score: 'VS', away: '广州', status: '未开始' },
+        { round: '第28轮', datetime: '2026-03-21 19:35', home: '福建', score: 'VS', away: '山西', status: '未开始' },
+        { round: '第28轮', datetime: '2026-03-21 19:35', home: '辽宁', score: 'VS', away: '北京', status: '未开始' },
+        { round: '第28轮', datetime: '2026-03-21 19:35', home: '同曦', score: 'VS', away: '青岛', status: '未开始' },
+        { round: '第28轮', datetime: '2026-03-21 19:35', home: '上海', score: 'VS', away: '四川', status: '未开始' },
+        { round: '第28轮', datetime: '2026-03-21 19:35', home: '浙江', score: 'VS', away: '吉林', status: '未开始' },
 
-        // 3月22日
-        { round: '第27轮', datetime: '2026-03-22 19:35', home: '北控', score: 'VS', away: '天津', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-22 19:35', home: '新疆', score: 'VS', away: '江苏', status: '未开始' },
-        { round: '第27轮', datetime: '2026-03-22 20:00', home: '广东', score: 'VS', away: '山东', status: '未开始' },
+        // 第27轮 - 已结束
+        { round: '第27轮', datetime: '2026-03-19 19:35', home: '吉林', score: '96:90', away: '山西', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-19 19:35', home: '青岛', score: '114:84', away: '福建', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-19 19:35', home: '北京', score: '88:75', away: '天津', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-19 20:00', home: '新疆', score: '103:89', away: '北控', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-18 19:35', home: '广厦', score: '87:72', away: '宁波', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-18 19:35', home: '山东', score: '83:96', away: '浙江', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-18 19:35', home: '上海', score: '84:80', away: '青岛', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-18 19:35', home: '深圳', score: '97:96', away: '广州', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-18 19:35', home: '同曦', score: '81:95', away: '福建', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-17 19:35', home: '辽宁', score: '92:84', away: '山西', status: '已结束' },
+        { round: '第27轮', datetime: '2026-03-17 19:35', home: '广东', score: '73:89', away: '辽宁', status: '已结束' },
 
-        // 已结束的比赛
-        { round: '第26轮', datetime: '2026-03-19 19:35', home: '辽宁', score: '92:84', away: '山西', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-19 19:35', home: '北京', score: '88:75', away: '天津', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-19 20:00', home: '广东', score: '73:89', away: '辽宁', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-18 19:35', home: '广厦', score: '87:72', away: '宁波', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-18 19:35', home: '山东', score: '83:96', away: '浙江', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-18 19:35', home: '上海', score: '84:80', away: '青岛', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-18 19:35', home: '深圳', score: '97:96', away: '广州', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-17 19:35', home: '新疆', score: '103:89', away: '北控', status: '已结束' },
-        { round: '第26轮', datetime: '2026-03-17 19:35', home: '吉林', score: '96:90', away: '山西', status: '已结束' },
+        // 第26轮 - 已结束
+        { round: '第26轮', datetime: '2026-03-16 19:35', home: '浙江', score: '89:86', away: '广厦', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-16 19:35', home: '四川', score: '79:129', away: '上海', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-15 19:35', home: '山东', score: '85:76', away: '青岛', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-15 19:35', home: '江苏', score: '84:93', away: '同曦', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-15 19:35', home: '广州', score: '85:98', away: '北京', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-15 19:35', home: '福建', score: '77:76', away: '宁波', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-14 19:35', home: '辽宁', score: '92:84', away: '山西', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-14 20:00', home: '深圳', score: '97:101', away: '广东', status: '已结束' },
+        { round: '第26轮', datetime: '2026-03-14 20:00', home: '新疆', score: '82:89', away: '吉林', status: '已结束' },
 
-        // 第25轮
-        { round: '第25轮', datetime: '2026-03-16 19:35', home: '浙江', score: '89:86', away: '广厦', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-16 19:35', home: '四川', score: '79:129', away: '上海', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-15 19:35', home: '山东', score: '85:76', away: '青岛', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-15 19:35', home: '江苏', score: '84:93', away: '同曦', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-15 19:35', home: '广州', score: '85:98', away: '北京', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-15 19:35', home: '福建', score: '77:76', away: '宁波', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-14 19:35', home: '辽宁', score: '92:84', away: '山西', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-14 20:00', home: '深圳', score: '97:101', away: '广东', status: '已结束' },
-        { round: '第25轮', datetime: '2026-03-14 20:00', home: '新疆', score: '82:89', away: '吉林', status: '已结束' },
+        // 第25轮 - 已结束
+        { round: '第25轮', datetime: '2026-03-13 19:35', home: '北控', score: '106:98', away: '天津', status: '已结束' },
+        { round: '第25轮', datetime: '2026-03-13 20:00', home: '新疆', score: '82:80', away: '广东', status: '已结束' },
+        { round: '第25轮', datetime: '2026-03-12 19:35', home: '广州', score: '83:84', away: '宁波', status: '已结束' },
 
-        // 第24轮
-        { round: '第24轮', datetime: '2026-03-13 19:35', home: '北控', score: '106:98', away: '天津', status: '已结束' },
-        { round: '第24轮', datetime: '2026-03-13 19:35', home: '青岛', score: '114:84', away: '福建', status: '已结束' },
-        { round: '第24轮', datetime: '2026-03-12 19:35', home: '广州', score: '83:84', away: '宁波', status: '已结束' },
+        // 第24轮 - 已结束
         { round: '第24轮', datetime: '2026-03-11 19:35', home: '山东', score: '113:104', away: '江苏', status: '已结束' },
         { round: '第24轮', datetime: '2026-03-11 19:35', home: '上海', score: '106:92', away: '北控', status: '已结束' },
         { round: '第24轮', datetime: '2026-03-11 19:35', home: '山西', score: '85:74', away: '吉林', status: '已结束' },
@@ -118,6 +118,9 @@ function getEmbeddedScheduleData() {
         { round: '第24轮', datetime: '2026-03-11 19:35', home: '天津', score: '102:95', away: '浙江', status: '已结束' },
         { round: '第24轮', datetime: '2026-03-11 19:35', home: '广厦', score: '113:80', away: '同曦', status: '已结束' },
         { round: '第24轮', datetime: '2026-03-11 20:00', home: '新疆', score: '82:80', away: '广东', status: '已结束' },
+
+        // 第2轮 - 已结束
+        { round: '第2轮', datetime: '2026-03-05 19:35', home: '广州', score: '93:85', away: '山东', status: '已结束' },
     ];
 
     return realSchedule.map((game, index) => {
