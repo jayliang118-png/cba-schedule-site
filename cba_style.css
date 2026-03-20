@@ -1,0 +1,150 @@
+/* CBA 样式文件 */
+
+/* 页面字体设置 */
+body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+}
+
+/* 一级标题颜色 */
+h1 {
+    color: #2c3e50;
+}
+
+/* 表格基本样式 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4a90d9;
+    color: white;
+    font-weight: bold;
+}
+
+/* 斑马纹 */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 筛选控件区域 */
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.filter-section label {
+    font-weight: bold;
+}
+
+.filter-section select,
+.filter-section input[type="date"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-section button {
+    padding: 5px 15px;
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-section button:hover {
+    background-color: #357abd;
+}
+
+/* 响应式设计 - 屏幕宽度小于768px */
+@media screen and (max-width: 768px) {
+    /* 筛选控件垂直排列 */
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-section label {
+        margin-top: 10px;
+    }
+
+    .filter-section label:first-child {
+        margin-top: 0;
+    }
+
+    .filter-section select,
+    .filter-section input[type="date"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .filter-section button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* 表格改为垂直布局（卡片式） */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #fff;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 8px 12px;
+        position: relative;
+        padding-left: 40%;
+        text-align: left;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    /* 在数据前显示列标题 */
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        width: 35%;
+        font-weight: bold;
+        color: #4a90d9;
+    }
+
+    td:hover {
+        background-color: #f9f9f9;
+    }
+}

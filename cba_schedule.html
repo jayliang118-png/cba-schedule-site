@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBA赛程</title>
+    <link rel="stylesheet" href="cba_style.css">
+</head>
+<body>
+    <h1>CBA篮球联赛第二阶段赛程</h1>
+    <p>赛程时间、场地查询系统 (GitHub自动部署)</p>
+
+    <button onclick="initCBA()">加载赛程</button>
+
+    <!-- 筛选控件区域 -->
+    <div class="filter-section">
+        <label for="teamFilter">球队：</label>
+        <select id="teamFilter">
+            <option value="">全部球队</option>
+        </select>
+
+        <label for="dateFilter">日期：</label>
+        <input type="date" id="dateFilter">
+
+        <label for="statusFilter">状态：</label>
+        <select id="statusFilter">
+            <option value="">全部状态</option>
+            <option value="未开始">未开始</option>
+            <option value="进行中">进行中</option>
+            <option value="已结束">已结束</option>
+        </select>
+
+        <button id="resetFilters">重置</button>
+    </div>
+
+    <div id="schedule-container">
+        <table id="scheduleTable">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>日期</th>
+                    <th>时间</th>
+                    <th>主队</th>
+                    <th>客队</th>
+                    <th>场地</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleBody">
+                <!-- 赛程数据将通过JavaScript动态加载 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="cba_script.js"></script>
+</body>
+</html>
