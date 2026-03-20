@@ -148,3 +148,102 @@ tr:hover {
         background-color: #f9f9f9;
     }
 }
+
+/* 轮次列样式 */
+.round-cell {
+    color: #4a90d9;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* 比分列样式 */
+.score-cell {
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+/* 状态样式 */
+.status {
+    font-weight: bold;
+    text-align: center;
+}
+
+.status.ended {
+    color: #666;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.status.live {
+    color: #fff;
+    background-color: #e74c3c;
+    border-radius: 4px;
+    padding: 4px 8px;
+    animation: pulse 1.5s infinite;
+}
+
+.status.upcoming {
+    color: #27ae60;
+    background-color: #e8f5e9;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* 日期单元格 */
+.date-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-cell .weekday {
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* 按钮样式 */
+.action-cell button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.btn-detail {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-live {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-remind {
+    background-color: #27ae60;
+    color: white;
+}
+
+.action-cell button:hover {
+    opacity: 0.8;
+}
+
+/* 球队名称 */
+.team-name {
+    font-weight: 500;
+}
+
+.team-name .score {
+    display: block;
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 4px;
+}

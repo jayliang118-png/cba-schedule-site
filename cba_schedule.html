@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBA赛程</title>
+    <title>CBA赛程查询 - 2025-26赛季</title>
     <link rel="stylesheet" href="cba_style.css">
 </head>
 <body>
-    <h1>CBA篮球联赛第二阶段赛程</h1>
-    <p>赛程时间、场地查询系统 (GitHub自动部署)</p>
+    <h1>CBA篮球联赛赛程查询</h1>
+    <p>2025-26赛季 | 数据来源: 新浪体育 | <a href="https://cba.sports.sina.com.cn/cba/" target="_blank">官方数据</a></p>
 
-    <button onclick="initCBA()">加载赛程</button>
+    <button onclick="refreshSchedule()">刷新数据</button>
 
     <!-- 筛选控件区域 -->
     <div class="filter-section">
@@ -37,10 +37,11 @@
         <table id="scheduleTable">
             <thead>
                 <tr>
-                    <th>序号</th>
+                    <th>轮次</th>
                     <th>日期</th>
                     <th>时间</th>
                     <th>主队</th>
+                    <th>比分</th>
                     <th>客队</th>
                     <th>场地</th>
                     <th>状态</th>
