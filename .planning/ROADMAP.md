@@ -68,7 +68,12 @@ Plans:
 4. GET /api/schedule returns valid JSON with all game records in expected format
 5. Unit tests verify parser handles edge cases (missing data, date formats, status determination)
 
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Scraper setup with GBK handling and HTTP fetching
+- [ ] 02-02-PLAN.md — Parser with BeautifulSoup and JSON storage
+- [ ] 02-03-PLAN.md — /api/schedule endpoint and unit tests
 
 ---
 
@@ -123,7 +128,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Flask Foundation & UI | 3/3 | Complete ✓ | 2026-03-23 |
-| 2. Data Layer & Scraping | 0/? | Not started | — |
+| 2. Data Layer & Scraping | 0/3 | Not started | — |
 | 3. Filtering & Testing | 0/? | Not started | — |
 | 4. Auto-Update & Deployment | 0/? | Not started | — |
 
@@ -161,4 +166,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-23*
-*Last updated: 2026-03-23 - Phase 1 complete*
+*Last updated: 2026-03-23 - Phase 2 plans created*
