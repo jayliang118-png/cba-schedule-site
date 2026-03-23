@@ -7,6 +7,7 @@ from flask import Flask, render_template, jsonify, request, make_response
 import json
 from pathlib import Path
 from datetime import datetime
+from filter_service import apply_filters
 
 # Flask app initialization
 app = Flask(__name__)
@@ -80,17 +81,38 @@ def index():
 @app.route('/api/schedule')
 def api_schedule():
     """
-    API endpoint returning CBA schedule as JSON (DATA-04)
+    API endpoint returning CBA schedule as JSON with optional filtering (DATA-04, UI-04)
+
+    Query parameters:
+    - date: Filter by exact date (YYYY-MM-DD format)
+    - team: Filter by team name (matches homeTeam or awayTeam)
+    - status: Filter by game status ('未开始', '进行中', '已结束')
+
+    Multiple filters are combined with AND logic (intersection).
 
     Response format:
     {
         "success": true,
-        "data": [...schedule array...],
-        "count": 100,
+        "data": [...filtered schedule array...],
+        "count": 50,
         "updated": "2026-03-23T10:30:00Z"
     }
     """
     try:
+        # Extract query parameters
+        date = request.args.get('date', '')
+        team = request.args.get('team', '')
+        status = request.args.get('status', '')
+
+        # Apply filters to schedule data
+        # Convert empty strings to None so filter_service treats them as "no filter"
+        filtered_games = apply_filters(
+            SCHEDULE_DATA,
+            date=date or None,
+            team=team or None,
+            status=status or None
+        )
+
         # Read schedule.json to get updated timestamp
         schedule_path = Path(__file__).parent / 'data' / 'schedule.json'
         with open(schedule_path, 'r', encoding='utf-8') as f:
@@ -98,8 +120,8 @@ def api_schedule():
 
         return jsonify({
             'success': True,
-            'data': SCHEDULE_DATA,
-            'count': len(SCHEDULE_DATA),
+            'data': filtered_games,
+            'count': len(filtered_games),
             'updated': full_data.get('updated', datetime.utcnow().isoformat() + 'Z')
         })
     except Exception as e:
