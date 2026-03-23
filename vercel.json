@@ -1,12 +1,17 @@
 {
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/schedule",
-      "destination": "/api/schedule"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/cba_schedule.html"
+      "src": "app.py",
+      "use": "@vercel/python"
     }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.11"
+  }
 }

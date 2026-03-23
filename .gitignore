@@ -10,3 +10,16 @@
 # OS
 .DS_Store
 Thumbs.db
+.planning/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+instance/
+.pytest_cache/
