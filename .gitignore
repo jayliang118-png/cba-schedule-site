@@ -23,3 +23,4 @@ venv/
 .venv/
 instance/
 .pytest_cache/
+.claude/
