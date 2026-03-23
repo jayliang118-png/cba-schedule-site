@@ -8,7 +8,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Flask Foundation & UI** - Bootstrap Flask app with Jinja2 templates and responsive schedule display
+- [x] **Phase 1: Flask Foundation & UI** - Bootstrap Flask app with Jinja2 templates and responsive schedule display
 - [ ] **Phase 2: Data Layer & Scraping** - Implement Sina Sports data integration and /api/schedule endpoint
 - [ ] **Phase 3: Filtering & Testing** - Add filter logic and comprehensive integration tests
 - [ ] **Phase 4: Auto-Update & Deployment** - Setup GitHub Actions auto-update workflow and Vercel deployment
@@ -41,9 +41,9 @@
 **Plans:** 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Flask application scaffold with serverless-compatible entry point
-- [ ] 01-02-PLAN.md — Jinja2 templates and responsive styling for schedule display
-- [ ] 01-03-PLAN.md — Client-side JavaScript scaffold for filter interactions
+- [x] 01-01-PLAN.md — Flask application scaffold with serverless-compatible entry point (Commit: ebbe6ee)
+- [x] 01-02-PLAN.md — Jinja2 templates and responsive styling for schedule display (Commit: a742a0e)
+- [x] 01-03-PLAN.md — Client-side JavaScript scaffold for filter interactions (Commit: 3d8e0ef)
 
 ---
 
@@ -122,7 +122,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Flask Foundation & UI | 0/3 | Planning complete | — |
+| 1. Flask Foundation & UI | 3/3 | Complete ✓ | 2026-03-23 |
 | 2. Data Layer & Scraping | 0/? | Not started | — |
 | 3. Filtering & Testing | 0/? | Not started | — |
 | 4. Auto-Update & Deployment | 0/? | Not started | — |
@@ -161,4 +161,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-23*
-*Last updated: 2026-03-23 - Phase 1 plans created*
+*Last updated: 2026-03-23 - Phase 1 complete*
