@@ -14,21 +14,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.11'
 
       - name: Install dependencies
-        run: npm install iconv-lite
+        run: pip install -r requirements.txt
 
       - name: Update schedule data
-        run: node update_schedule.js
+        run: python update_schedule.py
 
       - name: Check for changes
         id: check_changes
         run: |
-          if git diff --quiet cba_script.js; then
+          if git diff --quiet data/schedule.json; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add cba_script.js
+          git add data/schedule.json
           git commit -m "Auto-update CBA schedule data [skip ci]"
           git push
 
