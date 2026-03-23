@@ -6,6 +6,7 @@ Serves HTML pages and JSON API endpoints from single codebase
 from flask import Flask, render_template, jsonify, request, make_response
 import json
 from pathlib import Path
+from datetime import datetime
 
 # Flask app initialization
 app = Flask(__name__)
@@ -74,6 +75,40 @@ def add_cors_headers(response):
 def index():
     """Homepage route - renders schedule template with real data"""
     return render_template('schedule.html', schedule=SCHEDULE_DATA, teams=CBA_TEAMS)
+
+
+@app.route('/api/schedule')
+def api_schedule():
+    """
+    API endpoint returning CBA schedule as JSON (DATA-04)
+
+    Response format:
+    {
+        "success": true,
+        "data": [...schedule array...],
+        "count": 100,
+        "updated": "2026-03-23T10:30:00Z"
+    }
+    """
+    try:
+        # Read schedule.json to get updated timestamp
+        schedule_path = Path(__file__).parent / 'data' / 'schedule.json'
+        with open(schedule_path, 'r', encoding='utf-8') as f:
+            full_data = json.load(f)
+
+        return jsonify({
+            'success': True,
+            'data': SCHEDULE_DATA,
+            'count': len(SCHEDULE_DATA),
+            'updated': full_data.get('updated', datetime.utcnow().isoformat() + 'Z')
+        })
+    except Exception as e:
+        # Error response
+        return jsonify({
+            'success': False,
+            'error': str(e),
+            'data': []
+        }), 500
 
 # Error handlers
 @app.errorhandler(404)
