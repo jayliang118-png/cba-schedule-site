@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CBA赛程查询 - 2025-26赛季{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>CBA篮球联赛赛程查询</h1>
+        <p class="subtitle">
+            2025-26赛季 | 数据来源: 新浪体育 |
+            <a href="https://cba.sports.sina.com.cn/cba/" target="_blank">官方数据</a>
+        </p>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

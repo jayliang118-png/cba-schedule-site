@@ -51,51 +51,51 @@ def add_cors_headers(response):
 # Routes
 @app.route('/')
 def index():
-    """Homepage route - returns placeholder HTML"""
-    html_content = """
-    <!DOCTYPE html>
-    <html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CBA Schedule Flask - Coming Soon</title>
-        <style>
-            body {
-                font-family: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-                margin: 0;
-                background-color: #f5f5f5;
-            }
-            .container {
-                text-align: center;
-                padding: 40px;
-                background: white;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-            h1 {
-                color: #4a90d9;
-                margin-bottom: 20px;
-            }
-            p {
-                color: #666;
-                font-size: 18px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>CBA Schedule Flask - Coming Soon</h1>
-            <p>CBA赛程查询系统正在升级中...</p>
-            <p>Flask应用已成功启动</p>
-        </div>
-    </body>
-    </html>
-    """
-    return html_content
+    """Homepage route - renders schedule template with sample data"""
+    # Sample schedule data (will be replaced with real data in Phase 2)
+    sample_schedule = [
+        {
+            'id': 1,
+            'round': '第1轮',
+            'date': '2025-10-20',
+            'time': '19:35',
+            'homeTeam': '广东',
+            'awayTeam': '辽宁',
+            'venue': '东莞篮球中心',
+            'status': '未开始',
+            'homeScore': None,
+            'awayScore': None,
+            'weekDay': '周一'
+        },
+        {
+            'id': 2,
+            'round': '第1轮',
+            'date': '2025-10-20',
+            'time': '19:35',
+            'homeTeam': '浙江',
+            'awayTeam': '新疆',
+            'venue': '义乌梅湖体育馆',
+            'status': '进行中',
+            'homeScore': 45,
+            'awayScore': 42,
+            'weekDay': '周一'
+        },
+        {
+            'id': 3,
+            'round': '第1轮',
+            'date': '2025-10-19',
+            'time': '19:35',
+            'homeTeam': '北京',
+            'awayTeam': '上海',
+            'venue': '五棵松体育馆',
+            'status': '已结束',
+            'homeScore': 98,
+            'awayScore': 92,
+            'weekDay': '周日'
+        }
+    ]
+
+    return render_template('schedule.html', schedule=sample_schedule, teams=CBA_TEAMS)
 
 # Error handlers
 @app.errorhandler(404)
