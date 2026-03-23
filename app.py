@@ -4,6 +4,8 @@ Serves HTML pages and JSON API endpoints from single codebase
 """
 
 from flask import Flask, render_template, jsonify, request, make_response
+import json
+from pathlib import Path
 
 # Flask app initialization
 app = Flask(__name__)
@@ -39,6 +41,25 @@ TEAM_VENUES = {
     '吉林': '长春市体育馆', '山西': '山西省体育中心'
 }
 
+
+def load_schedule_data():
+    """Load schedule from embedded JSON file"""
+    schedule_path = Path(__file__).parent / 'data' / 'schedule.json'
+    try:
+        with open(schedule_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data['schedule']
+    except FileNotFoundError:
+        print(f"Warning: schedule.json not found at {schedule_path}")
+        return []
+    except json.JSONDecodeError as e:
+        print(f"Error parsing schedule.json: {e}")
+        return []
+
+
+# Load schedule on module import (cached)
+SCHEDULE_DATA = load_schedule_data()
+
 # CORS headers for API endpoints
 @app.after_request
 def add_cors_headers(response):
@@ -51,51 +72,8 @@ def add_cors_headers(response):
 # Routes
 @app.route('/')
 def index():
-    """Homepage route - renders schedule template with sample data"""
-    # Sample schedule data (will be replaced with real data in Phase 2)
-    sample_schedule = [
-        {
-            'id': 1,
-            'round': '第1轮',
-            'date': '2025-10-20',
-            'time': '19:35',
-            'homeTeam': '广东',
-            'awayTeam': '辽宁',
-            'venue': '东莞篮球中心',
-            'status': '未开始',
-            'homeScore': None,
-            'awayScore': None,
-            'weekDay': '周一'
-        },
-        {
-            'id': 2,
-            'round': '第1轮',
-            'date': '2025-10-20',
-            'time': '19:35',
-            'homeTeam': '浙江',
-            'awayTeam': '新疆',
-            'venue': '义乌梅湖体育馆',
-            'status': '进行中',
-            'homeScore': 45,
-            'awayScore': 42,
-            'weekDay': '周一'
-        },
-        {
-            'id': 3,
-            'round': '第1轮',
-            'date': '2025-10-19',
-            'time': '19:35',
-            'homeTeam': '北京',
-            'awayTeam': '上海',
-            'venue': '五棵松体育馆',
-            'status': '已结束',
-            'homeScore': 98,
-            'awayScore': 92,
-            'weekDay': '周日'
-        }
-    ]
-
-    return render_template('schedule.html', schedule=sample_schedule, teams=CBA_TEAMS)
+    """Homepage route - renders schedule template with real data"""
+    return render_template('schedule.html', schedule=SCHEDULE_DATA, teams=CBA_TEAMS)
 
 # Error handlers
 @app.errorhandler(404)
