@@ -43,54 +43,7 @@
                 </tr>
             </thead>
             <tbody id="scheduleBody">
-                {% for game in schedule %}
-                <tr>
-                    <td data-label="轮次" class="round-cell">{{ game.round }}</td>
-                    <td data-label="日期" class="date-cell">
-                        {{ game.date }}
-                        {% if game.weekDay %}
-                        <span class="weekday">{{ game.weekDay }}</span>
-                        {% endif %}
-                    </td>
-                    <td data-label="时间">{{ game.time }}</td>
-                    <td data-label="主队" class="team-name">
-                        {{ game.homeTeam }}
-                        {% if game.homeScore is not none %}
-                        <span class="score">{{ game.homeScore }}</span>
-                        {% endif %}
-                    </td>
-                    <td data-label="比分" class="score-cell">
-                        {% if game.homeScore is not none and game.awayScore is not none %}
-                        {{ game.homeScore }} : {{ game.awayScore }}
-                        {% else %}
-                        VS
-                        {% endif %}
-                    </td>
-                    <td data-label="客队" class="team-name">
-                        {{ game.awayTeam }}
-                        {% if game.awayScore is not none %}
-                        <span class="score">{{ game.awayScore }}</span>
-                        {% endif %}
-                    </td>
-                    <td data-label="场地">{{ game.venue }}</td>
-                    <td data-label="状态" class="status {% if game.status == '已结束' %}ended{% elif game.status == '进行中' %}live{% else %}upcoming{% endif %}">
-                        {{ game.status }}
-                    </td>
-                    <td data-label="操作" class="action-cell">
-                        {% if game.status == '进行中' %}
-                        <button class="btn-live">直播</button>
-                        {% elif game.status == '未开始' %}
-                        <button class="btn-remind">提醒</button>
-                        {% else %}
-                        <button class="btn-detail">详情</button>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="9" style="text-align: center; padding: 20px;">暂无赛程数据</td>
-                </tr>
-                {% endfor %}
+                <!-- Dynamically populated by JavaScript -->
             </tbody>
         </table>
     </div>
