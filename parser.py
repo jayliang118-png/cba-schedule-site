@@ -136,7 +136,9 @@ def transform_to_json_format(raw_games: List[Dict]) -> Dict:
                 home_score = int(score_parts[0])
                 away_score = int(score_parts[1])
             except (ValueError, IndexError):
-                pass
+                # Reset both to None if parsing fails
+                home_score = None
+                away_score = None
 
         # Lookup venue by home team
         venue = TEAM_VENUES.get(game['home'], '')
