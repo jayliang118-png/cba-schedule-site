@@ -10,7 +10,7 @@
 
 - [x] **Phase 1: Flask Foundation & UI** - Bootstrap Flask app with Jinja2 templates and responsive schedule display
 - [x] **Phase 2: Data Layer & Scraping** - Implement Sina Sports data integration and /api/schedule endpoint (completed 2026-03-23)
-- [ ] **Phase 3: Filtering & Testing** - Add filter logic and comprehensive integration tests
+- [x] **Phase 3: Filtering & Testing** - Add filter logic and comprehensive integration tests (completed 2026-03-23)
 - [ ] **Phase 4: Auto-Update & Deployment** - Setup GitHub Actions auto-update workflow and Vercel deployment
 
 ---
@@ -95,7 +95,7 @@ Plans:
 4. Multiple filters combined produce correct intersection of results
 5. Integration tests verify /api/schedule endpoint with various filter parameters
 
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 03-01-PLAN.md — Filter backend service and /api/schedule query parameters
@@ -124,7 +124,12 @@ Plans:
 4. Flask app successfully deploys to Vercel after push
 5. Deployed app on Vercel serves schedule with live data and all filters working
 
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Python update script with Sina Sports fetching and JSON generation
+- [ ] 04-02-PLAN.md — GitHub Actions workflow for daily auto-updates at 12:00 UTC
+- [ ] 04-03-PLAN.md — Vercel deployment verification and documentation
 
 ---
 
@@ -134,8 +139,8 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Flask Foundation & UI | 3/3 | Complete ✓ | 2026-03-23 |
 | 2. Data Layer & Scraping | 3/3 | Complete ✓ | 2026-03-23 |
-| 3. Filtering & Testing | 0/3 | Planned | — |
-| 4. Auto-Update & Deployment | 0/? | Not started | — |
+| 3. Filtering & Testing | 3/3 | Complete ✓ | 2026-03-23 |
+| 4. Auto-Update & Deployment | 0/3 | Not started | — |
 
 ---
 
@@ -171,4 +176,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-23*
-*Last updated: 2026-03-23 - Phase 3 plans created*
+*Last updated: 2026-03-23 - Phase 4 plans created*
