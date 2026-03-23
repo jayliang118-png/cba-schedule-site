@@ -9,7 +9,7 @@
 ## Phases
 
 - [x] **Phase 1: Flask Foundation & UI** - Bootstrap Flask app with Jinja2 templates and responsive schedule display
-- [ ] **Phase 2: Data Layer & Scraping** - Implement Sina Sports data integration and /api/schedule endpoint
+- [x] **Phase 2: Data Layer & Scraping** - Implement Sina Sports data integration and /api/schedule endpoint (completed 2026-03-23)
 - [ ] **Phase 3: Filtering & Testing** - Add filter logic and comprehensive integration tests
 - [ ] **Phase 4: Auto-Update & Deployment** - Setup GitHub Actions auto-update workflow and Vercel deployment
 
@@ -68,7 +68,7 @@ Plans:
 4. GET /api/schedule returns valid JSON with all game records in expected format
 5. Unit tests verify parser handles edge cases (missing data, date formats, status determination)
 
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Scraper setup with GBK handling and HTTP fetching
@@ -95,7 +95,12 @@ Plans:
 4. Multiple filters combined produce correct intersection of results
 5. Integration tests verify /api/schedule endpoint with various filter parameters
 
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Filter backend service and /api/schedule query parameters
+- [ ] 03-02-PLAN.md — Client-side filter integration with API
+- [ ] 03-03-PLAN.md — Integration tests for filtering (80%+ coverage)
 
 ---
 
@@ -128,8 +133,8 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Flask Foundation & UI | 3/3 | Complete ✓ | 2026-03-23 |
-| 2. Data Layer & Scraping | 0/3 | Not started | — |
-| 3. Filtering & Testing | 0/? | Not started | — |
+| 2. Data Layer & Scraping | 3/3 | Complete ✓ | 2026-03-23 |
+| 3. Filtering & Testing | 0/3 | Planned | — |
 | 4. Auto-Update & Deployment | 0/? | Not started | — |
 
 ---
@@ -166,4 +171,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-23*
-*Last updated: 2026-03-23 - Phase 2 plans created*
+*Last updated: 2026-03-23 - Phase 3 plans created*
